@@ -1,0 +1,59 @@
+##会员登录
+/qz/sys/login = LoginRequest, LoginResponse
+##重置会员登录密码
+/qz/sys/login_pwd_reset = LoginPasswordResetRequest, BaseResponse
+##会员登录密码修改
+/qz/sys/login_pwd_modify = LoginPasswordModifyRequest, BaseResponse
+##会员交易密码修改
+/qz/sys/tran_pwd_modify = TradePasswordModifyRequest, BaseResponse
+##会员交易密码重置
+/qz/sys/tran_pwd_reset = TradePasswordResetRequest, BaseResponse
+##注册手机号码更换
+/qz/sys/reg_mobile_change = MobileChangeRequest, BaseResponse
+##会员注册
+/qz/mem/register = MemberRegisterRequest, MemberRegisterResponse
+##会员信息更新
+/qz/mem/reg_info_update = MemberInfoModifyRequest, BaseResponse
+##普通会员开通为诺星会员
+/qz/mem/create_nx_order_prepay = MemberPreparePayRequest, MemberPreparePayResponse
+##诺星会员开通支付结果通知
+/qz/mem/notify_nx_order_payed_ result = MemberPreparePayNotifyRequest, BaseResponse
+##诺商认证
+/qz/mem/ns_identify = MerchantIdentityRequest, BaseResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺宝充值支付
+/qz/mem/ns_identified_info_qry = MerchantChargeRequest, BaseResponse
+##诺诺宝充值支付结果通知
+/qz/acc/nb/notify_nb_order_payed_result = MerchantChargeNotifyRequest, BaseResponse
+##诺宝提现税率查询
+/qz/acc/nb/nb_withdraw_apply = MerchantWithdrawFeerateQueryRequest, BaseResponse
+##诺宝提现银行卡查询
+/qz/acc/nb/nb_withdraw_card_qry = MerchantWithdrawCardQueryRequest, MerchantWithdrawCardQueryResponse
+##诺宝往来伙伴查询
+/qz/acc/nb/nb_partner_qry = MerchantPartnerQueryRequest, MerchantPartnerQueryResponse
+
+
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+##诺商认证信息查询
+/qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
+
