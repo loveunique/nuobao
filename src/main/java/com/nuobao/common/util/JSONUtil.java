@@ -56,6 +56,6 @@ public class JSONUtil {
 	}
 
 	public static <T> T JSONToObj(String jsonStr, Class<T> clazz) throws IOException {
-		return JSON.toJavaObject(JSONObject.parseObject(jsonStr), clazz);
+		return JSON.parseObject(jsonStr, clazz, Feature.OrderedField);
 	}
 }
