@@ -4,6 +4,9 @@ import com.nuobao.bussiness.integration.request.MerchantInfoQueryRequest;
 import com.nuobao.bussiness.integration.request.MerchantPartnerQueryRequest;
 import com.nuobao.bussiness.integration.response.MemberInfoQueryResponse;
 import com.nuobao.bussiness.integration.response.MerchantPartnerQueryResponse;
+import com.nuobao.common.constant.ApplicationErrorCode;
+import com.nuobao.common.exception.BaseException;
+import com.nuobao.common.exception.TranFailException;
 import com.nuobao.common.http.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,11 +30,25 @@ public class MerchantPartnerQueryService {
      * @return BaseResponse
      * @throws Exception
      */
-    public MerchantPartnerQueryResponse execute(MerchantPartnerQueryRequest request) throws Exception {
+    public MerchantPartnerQueryResponse execute(MerchantPartnerQueryRequest request) throws TranFailException {
         logger.info("MerchantInfoQueryService.execute: request:{}", request);
 
-        MerchantPartnerQueryResponse response = HttpUtil.callHostServerByPost(false, null, "UTF-8", request, MerchantPartnerQueryResponse.class);
+        try {
+            MerchantPartnerQueryResponse response = HttpUtil.callHostServerByPost(false, null,
+                    "UTF-8", request, "/acc/nb/nb_partner_qry",MerchantPartnerQueryResponse.class);
 
-        return response;
+            String resultCode = response.getResultCode();
+            if(!"0".equals(resultCode)) {
+                throw new TranFailException(resultCode, response.getResultMsg());
+            }
+
+            return response;
+        } catch (BaseException e) {
+            logger.error("LoginPasswordModifyService.BaseException: e:{}", e);
+            throw e;
+        } catch (Exception e) {
+            logger.error("LoginPasswordModifyService.Exception: e:{}", e);
+            throw new TranFailException(ApplicationErrorCode.SYSTEM_ERROR, "交易异常");
+        }
     }
 }

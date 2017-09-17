@@ -275,7 +275,7 @@ public class HttpUtil {
     public static <T> T callHostServerByPost(boolean useVirtualFormat,
                                                        String responseVirtualFormatFileName,
                                                        String charset, Object requestFormatModel,
-                                                       Class<T> responseFormatModelClazz) throws Exception {
+                                                       String shortUrl, Class<T> responseFormatModelClazz) throws Exception {
         // 使用虚拟报文
         if(useVirtualFormat){
             // 取当前时间为调用号
@@ -323,6 +323,9 @@ public class HttpUtil {
 
         for(String url:urls){
             try {
+                if(StringUtils.isEmpty(shortUrl)) {
+                    url += shortUrl;
+                }
                 response = sendPostAndParse(url, JSONUtil.objToJSON(requestFormatModel), responseFormatModelClazz);
             } catch (HttpConnectionException e) {
                 logger.error("HttpUtil.callCashManagementServerByPost, 服务器{}通信失败，尝试下一个地址...", url);

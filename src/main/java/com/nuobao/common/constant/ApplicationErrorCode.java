@@ -98,61 +98,61 @@ public interface ApplicationErrorCode {
 	/**
 	 * 页面超时,请刷新重试
 	 */
-	String PWDREDIS_IS_ERROR ="400009";
+	String PWDREDIS_IS_ERROR = "400009";
 	/**
 	 * 密码转换失败
 	 */
-	String PWDDCRYPT_IS_ERROR ="400010";
+	String PWDDCRYPT_IS_ERROR = "400010";
 	
 	/**
 	 * 报文域解析异常
 	 */
-	String RESOLVE_CONTENT_FAIL="500001";
+	String RESOLVE_CONTENT_FAIL = "500001";
 	
 	/**
 	 * 请求报文创建异常
 	 */
-	String REQUESTDATA_CREATE_FAIL="500002";
+	String REQUESTDATA_CREATE_FAIL = "500002";
 	
 	/**
 	 * 解析报文异常
 	 */
-	String RESOLVE_HOST_FAIL="500003";
+	String RESOLVE_HOST_FAIL = "500003";
 	
 	/**
 	 * object--> JSON 解析异常
 	 */
-	String OBJECT_TO_JSON_FAIL="500004";
+	String OBJECT_TO_JSON_FAIL = "500004";
 	
 	/**
 	 * JSON--> object  解析异常
 	 */
-	String JSON_TO_OBJECT_FAIL="500005";
+	String JSON_TO_OBJECT_FAIL = "500005";
 	
 	/**
 	 * 缓存服务器异常
 	 */
-	String CACHE_ERROR="999997";
+	String CACHE_ERROR = "999997";
 	
 	/**
 	 * 系统异常
 	 */
-	String SYSTEM_WITHMESSAGE_ERROR="999998";
+	String SYSTEM_WITHMESSAGE_ERROR = "999998";
 	
 	/**
 	 * 系统异常
 	 */
-	String SYSTEM_ERROR="999999";
+	String SYSTEM_ERROR = "999999";
 	
 	/**
 	 * 核心通信异常
 	 */
-	String INTEGRATION_ERROR="888887";
+	String INTEGRATION_ERROR = "888887";
 	
 	/**
 	 * 通信异常
 	 */
-	String HTTP_ERROR="888888";
+	String HTTP_ERROR  ="888888";
 	
 	
 	/**

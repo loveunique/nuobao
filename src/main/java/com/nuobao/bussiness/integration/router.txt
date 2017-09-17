@@ -23,11 +23,11 @@
 ##诺商认证信息查询
 /qz/mem/ns_identified_info_qry = MerchantInfoQueryRequest, MemberInfoQueryResponse
 ##诺宝充值支付
-/qz/mem/ns_identified_info_qry = MerchantChargeRequest, BaseResponse
+/qz/acc/nb/create_nb_order_prepay = MerchantChargeRequest, BaseResponse
 ##诺宝充值支付结果通知
 /qz/acc/nb/notify_nb_order_payed_result = MerchantChargeNotifyRequest, BaseResponse
 ##诺宝提现税率查询
-/qz/acc/nb/nb_withdraw_apply = MerchantWithdrawFeerateQueryRequest, MerchantWithdrawFeerateQueryResponse
+/qz/acc/nb/nb_withdraw_feerate_qry = MerchantWithdrawFeerateQueryRequest, MerchantWithdrawFeerateQueryResponse
 ##诺宝提现银行卡查询
 /qz/acc/nb/nb_withdraw_card_qry = MerchantWithdrawCardQueryRequest, MerchantWithdrawCardQueryResponse
 ##诺宝往来伙伴查询
