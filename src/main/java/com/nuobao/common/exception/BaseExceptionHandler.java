@@ -1,6 +1,7 @@
 package com.nuobao.common.exception;
 
 import com.nuobao.common.constant.ApplicationErrorCode;
+import com.nuobao.common.result.OperationResult;
 import com.nuobao.common.util.ConfigPropertiesReader;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.PriorityOrdered;
