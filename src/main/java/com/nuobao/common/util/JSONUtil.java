@@ -1,6 +1,8 @@
 package com.nuobao.common.util;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -10,8 +12,6 @@ import javax.servlet.ServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.List;
-import java.util.Map;
 
 /**
  * JSON工具类
@@ -52,22 +52,10 @@ public class JSONUtil {
 		else if (obj instanceof ServletResponse) {
 			return "It is HttpServletResponse";
 		}
-		return mapper.writeValueAsString(obj);
+		return JSON.toJSONString(obj);
 	}
 
 	public static <T> T JSONToObj(String jsonStr, Class<T> clazz) throws IOException {
-		return mapper.readValue(jsonStr, clazz);
-	}
-
-	public static <T> List<T> JSONToList(String jsonStr, TypeReference<List<T>> type) throws IOException {
-		return mapper.readValue(jsonStr, type);
-	}
-
-	public static <K, T> Map<K, T> JSONToMap(String jsonStr, TypeReference<Map<K, T>> type) throws IOException {
-		return mapper.readValue(jsonStr, type);
-	}
-
-	public static <K, T> List<Map<K, T>> JSONToListMap(String jsonStr, TypeReference<List<Map<K, T>>> type) throws IOException {
-		return mapper.readValue(jsonStr, type);
+		return JSON.toJavaObject(JSONObject.parseObject(jsonStr), clazz);
 	}
 }

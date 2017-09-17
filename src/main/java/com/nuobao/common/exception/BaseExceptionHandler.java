@@ -3,6 +3,8 @@ package com.nuobao.common.exception;
 import com.nuobao.common.constant.ApplicationErrorCode;
 import com.nuobao.common.result.OperationResult;
 import com.nuobao.common.util.ConfigPropertiesReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.PriorityOrdered;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,8 @@ import java.nio.charset.Charset;
 		Controller.class, RestController.class
 })
 public class BaseExceptionHandler implements PriorityOrdered {
+
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@ExceptionHandler(value = {
 		BaseException.class
@@ -56,7 +60,9 @@ public class BaseExceptionHandler implements PriorityOrdered {
 		}
 		ExceptionStackTrace stackTrace=new ExceptionStackTrace();
 		stackTrace.setStackTrace(e.getErrorStack());
-		OperationResult result = new OperationResult(errorCode, errorMessage, stackTrace);
+        logger.error("BaseExceptionHandler.baseExceptionHandler --> stackTrace:{}", stackTrace);
+		//OperationResult result = new OperationResult(errorCode, errorMessage, stackTrace);
+        OperationResult result = new OperationResult(errorCode, errorMessage);
 		return result;
 	}
 
@@ -68,7 +74,9 @@ public class BaseExceptionHandler implements PriorityOrdered {
 		String errorMessage = ConfigPropertiesReader.getPropertyValue(errorCode, "交易异常");
 		ExceptionStackTrace stackTrace=new ExceptionStackTrace();
 		stackTrace.setStackTrace(BaseExceptionHandler.getErrorStack(e));
-		OperationResult result = new OperationResult(errorCode, errorMessage, stackTrace);
+        logger.error("BaseExceptionHandler.otherExceptionHandler --> stackTrace:{}", stackTrace);
+        //OperationResult result = new OperationResult(errorCode, errorMessage, stackTrace);
+        OperationResult result = new OperationResult(errorCode, errorMessage);
 		return result;
 	}
 

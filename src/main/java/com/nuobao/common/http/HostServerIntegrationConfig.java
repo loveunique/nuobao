@@ -1,6 +1,9 @@
 package com.nuobao.common.http;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -13,6 +16,9 @@ import java.util.List;
  * @date 2017-09-16 九月 16:06
  * @modify
  **/
+@Component
+@PropertySource("classpath:application.properties")
+@ConfigurationProperties("integration")
 public class HostServerIntegrationConfig {
 
     /**
@@ -30,9 +36,9 @@ public class HostServerIntegrationConfig {
     /**
      * 设置URL，通过在application-xxxx.properties中设置，该方法被spring调用
      * @author Xu Chengzhi  2017-8-2 下午4:56:38
-     * @param cashManagementUrl
+     * @param hostServerUrl
      */
-    public void setHostServerUrlList(String cashManagementUrl) {
+    public void setHostServerUrlList(String hostServerUrl) {
         if(StringUtils.isEmpty(hostServerUrl)) {
             this.hostServerUrl = hostServerUrl;
         }
@@ -49,4 +55,11 @@ public class HostServerIntegrationConfig {
         return hostServerUrlList;
     }
 
+    public String getHostServerUrl() {
+        return hostServerUrl;
+    }
+
+    public void setHostServerUrl(String hostServerUrl) {
+        this.hostServerUrl = hostServerUrl;
+    }
 }

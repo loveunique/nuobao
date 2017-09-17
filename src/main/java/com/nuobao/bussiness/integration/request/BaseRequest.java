@@ -34,6 +34,7 @@ public class BaseRequest implements Serializable {
         this.channel = channel;
     }
 
+    @JSONField(name="organ_id")
     public String getOrganId() {
         return organId;
     }

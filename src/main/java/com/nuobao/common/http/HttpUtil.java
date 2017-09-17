@@ -4,7 +4,11 @@ import com.nuobao.common.constant.ApplicationErrorCode;
 import com.nuobao.common.exception.HttpConnectionException;
 import com.nuobao.common.exception.IntegrationException;
 import com.nuobao.common.util.JSONUtil;
-import org.apache.http.*;
+import org.apache.commons.io.FileUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpRequest;
+import org.apache.http.NoHttpResponseException;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.EntityBuilder;
@@ -286,7 +290,7 @@ public class HttpUtil {
             String requestJsonString = JSONUtil.objToJSON(requestFormatModel);
             logger.info("HttpUtil.callCashManagementServerByPost, 调用号:{}, 请求报文:{}", callNo, requestJsonString);
             // 读取答复报文
-            InputStream responseJsonStream = CallUrlServiceApi.class.getClassLoader().getResourceAsStream(responseVirtualFormatFileName);
+            InputStream responseJsonStream = FileUtils.openInputStream(new File(responseVirtualFormatFileName));
 
             // 将stream转化为String
             String responseJsonString = null;
@@ -297,7 +301,7 @@ public class HttpUtil {
                 buffer.append(line);
             }
             responseJsonString = buffer.toString();
-            logger.info("HttpUtil.callCashManagementServerByPost, 调用号:{}, 返回报文:{}", callNo, requestJsonString);
+            logger.info("HttpUtil.callCashManagementServerByPost, 调用号:{}, 返回报文:{}", callNo, responseJsonString);
 
             if(responseJsonString != null){
                 // 提取答复实体类对象
@@ -311,7 +315,7 @@ public class HttpUtil {
         }
 
         List<String> urls = hostServerIntegrationConfig.getHostServerUrlList();
-        if(urls.size() <= 0){
+        if(urls == null || urls.size() <= 0){
             logger.error("HttpUtil.callCashManagementServerByPost, 请求路径不能为空");
             throw new HttpConnectionException(ApplicationErrorCode.NOT_NULL,"请求路径不能为空");
         }

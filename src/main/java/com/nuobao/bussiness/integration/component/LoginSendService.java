@@ -33,7 +33,7 @@ public class LoginSendService {
         logger.info("LoginRequestService.execute: request:{}", request);
 
         try {
-            LoginResponse response = HttpUtil.callHostServerByPost(false, null,
+            LoginResponse response = HttpUtil.callHostServerByPost(true, "G://tmp//1.txt",
                     "UTF-8", request, "/sys/login",LoginResponse.class);
 
             String resultCode = response.getResultCode();
