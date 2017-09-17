@@ -24,33 +24,33 @@ public interface LoginService {
      * @param request
      * @return OperationResult
      */
-    OperationResult loginPwdReset(LoginPasswordResetRequest request);
+    OperationResult loginPwdReset(LoginPasswordResetRequest request) throws Exception;
 
     /**
      * 会员登录密码修改
      * @param request
      * @return OperationResult
      */
-    OperationResult loginPwdModify(LoginPasswordModifyRequest request);
+    OperationResult loginPwdModify(LoginPasswordModifyRequest request) throws Exception;
 
     /**
      * 会员交易密码修改
      * @param request
      * @return OperationResult
      */
-    OperationResult tranPwdModify(TradePasswordModifyRequest request);
+    OperationResult tranPwdModify(TradePasswordModifyRequest request) throws Exception;
 
     /**
      * 会员交易密码重置
      * @param request
      * @return OperationResult
      */
-    OperationResult tranPwdReset(TradePasswordResetRequest request);
+    OperationResult tranPwdReset(TradePasswordResetRequest request) throws Exception;
 
     /**
      * 注册手机号码更换
      * @param request
      * @return OperationResult
      */
-    OperationResult mobileChange(MobileChangeRequest request);
+    OperationResult mobileChange(MobileChangeRequest request) throws Exception;
 }

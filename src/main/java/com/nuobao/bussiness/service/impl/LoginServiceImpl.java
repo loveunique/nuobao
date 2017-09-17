@@ -1,7 +1,8 @@
 package com.nuobao.bussiness.service.impl;
 
-import com.nuobao.bussiness.integration.component.LoginSendService;
+import com.nuobao.bussiness.integration.component.*;
 import com.nuobao.bussiness.integration.request.*;
+import com.nuobao.bussiness.integration.response.BaseResponse;
 import com.nuobao.bussiness.integration.response.LoginResponse;
 import com.nuobao.bussiness.service.LoginService;
 import com.nuobao.common.exception.BaseException;
@@ -20,6 +21,21 @@ public class LoginServiceImpl implements LoginService{
 
     @Autowired
     private LoginSendService loginSendService;
+
+    @Autowired
+    private LoginPasswordResetService loginPwdResetService;
+
+    @Autowired
+    private LoginPasswordModifyService loginPasswordModifyService;
+
+    @Autowired
+    private TradePasswordModifyService tradePasswordModifyService;
+
+    @Autowired
+    private TradePasswordResetService tradePasswordResetService;
+
+    @Autowired
+    private MobileChangeService mobileChangeService;
 
     /**
      * 会员登录
@@ -43,7 +59,10 @@ public class LoginServiceImpl implements LoginService{
      */
     @Override
     public OperationResult loginPwdReset(LoginPasswordResetRequest request) throws BaseException{
-        return null;
+        OperationResult result = new OperationResult();
+        BaseResponse response = loginPwdResetService.execute(request);
+        result.setBusinessDataObject(response);
+        return result;
     }
 
     /**
@@ -54,7 +73,10 @@ public class LoginServiceImpl implements LoginService{
      */
     @Override
     public OperationResult loginPwdModify(LoginPasswordModifyRequest request) throws BaseException{
-        return null;
+        OperationResult result = new OperationResult();
+        BaseResponse response = loginPasswordModifyService.execute(request);
+        result.setBusinessDataObject(response);
+        return result;
     }
 
     /**
@@ -65,7 +87,10 @@ public class LoginServiceImpl implements LoginService{
      */
     @Override
     public OperationResult tranPwdModify(TradePasswordModifyRequest request) throws BaseException{
-        return null;
+        OperationResult result = new OperationResult();
+        BaseResponse response = tradePasswordModifyService.execute(request);
+        result.setBusinessDataObject(response);
+        return result;
     }
 
     /**
@@ -76,7 +101,10 @@ public class LoginServiceImpl implements LoginService{
      */
     @Override
     public OperationResult tranPwdReset(TradePasswordResetRequest request) throws BaseException{
-        return null;
+        OperationResult result = new OperationResult();
+        BaseResponse response = tradePasswordResetService.execute(request);
+        result.setBusinessDataObject(response);
+        return result;
     }
 
     /**
@@ -87,6 +115,9 @@ public class LoginServiceImpl implements LoginService{
      */
     @Override
     public OperationResult mobileChange(MobileChangeRequest request) throws BaseException{
-        return null;
+        OperationResult result = new OperationResult();
+        BaseResponse response = mobileChangeService.execute(request);
+        result.setBusinessDataObject(response);
+        return result;
     }
 }
