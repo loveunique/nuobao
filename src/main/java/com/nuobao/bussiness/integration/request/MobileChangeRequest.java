@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,28 +15,52 @@ public class MobileChangeRequest extends BaseRequest{
 
     private static final long serialVersionUID = -5971300361889996275L;
 
-    private MobileChangeRequestInput input;
+    //客户号 32 M
+    @JSONField(name="cust_no")
+    private String custNo;
+
+    //新手机号码 11 M
+    @JSONField(name="mobile_no_new")
+    private String mobileNoNew;
+
+    //登录密码 256 M
+    @JSONField(name="logon_pwd")
+    private String logonPwd;
 
     public MobileChangeRequest() {
         super();
     }
 
-    public MobileChangeRequest(String organId, String channel) {
-        super(organId, channel);
+    public String getCustNo() {
+        return custNo;
     }
 
-    public MobileChangeRequestInput getInput() {
-        return input;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
-    public void setInput(MobileChangeRequestInput input) {
-        this.input = input;
+    public String getMobileNoNew() {
+        return mobileNoNew;
+    }
+
+    public void setMobileNoNew(String mobileNoNew) {
+        this.mobileNoNew = mobileNoNew;
+    }
+
+    public String getLogonPwd() {
+        return logonPwd;
+    }
+
+    public void setLogonPwd(String logonPwd) {
+        this.logonPwd = logonPwd;
     }
 
     @Override
     public String toString() {
         return "MobileChangeRequest{" +
-                "input=" + input +
+                "custNo='" + custNo + '\'' +
+                ", mobileNoNew='" + mobileNoNew + '\'' +
+                ", logonPwd='" + logonPwd + '\'' +
                 '}';
     }
 }

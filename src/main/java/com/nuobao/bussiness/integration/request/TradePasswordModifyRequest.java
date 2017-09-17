@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,28 +15,52 @@ public class TradePasswordModifyRequest extends BaseRequest{
 
     private static final long serialVersionUID = 5557457685679403090L;
 
-    private TradePasswordModifyRequestInput input;
+    //客户号 32 M
+    @JSONField(name="cust_no")
+    private String custNo;
+
+    //原登录密码 256 M
+    @JSONField(name="tran_pwd_old")
+    private String tranPwdOld;
+
+    //新登录密码 256 M
+    @JSONField(name="tran_pwd_new")
+    private String tranPwdNew;
 
     public TradePasswordModifyRequest() {
         super();
     }
 
-    public TradePasswordModifyRequest(String organId, String channel) {
-        super(organId, channel);
+    public String getCustNo() {
+        return custNo;
     }
 
-    public TradePasswordModifyRequestInput getInput() {
-        return input;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
-    public void setInput(TradePasswordModifyRequestInput input) {
-        this.input = input;
+    public String getTranPwdOld() {
+        return tranPwdOld;
+    }
+
+    public void setTranPwdOld(String tranPwdOld) {
+        this.tranPwdOld = tranPwdOld;
+    }
+
+    public String getTranPwdNew() {
+        return tranPwdNew;
+    }
+
+    public void setTranPwdNew(String tranPwdNew) {
+        this.tranPwdNew = tranPwdNew;
     }
 
     @Override
     public String toString() {
-        return "TradePasswordModifyRequestInput{" +
-                "input=" + input +
+        return "TradePasswordModifyRequest{" +
+                "custNo='" + custNo + '\'' +
+                ", tranPwdOld='" + tranPwdOld + '\'' +
+                ", tranPwdNew='" + tranPwdNew + '\'' +
                 '}';
     }
 }

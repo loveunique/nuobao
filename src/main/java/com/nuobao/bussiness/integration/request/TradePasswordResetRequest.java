@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,28 +15,39 @@ public class TradePasswordResetRequest extends BaseRequest{
 
     private static final long serialVersionUID = 9199166669325925447L;
 
-    private TradePasswordResetRequestInput input;
+    //客户号 32 M
+    @JSONField(name="cust_no")
+    private String custNo;
+
+    //登录密码 256 M
+    @JSONField(name="tran_pwd")
+    private String tranPwd;
 
     public TradePasswordResetRequest() {
         super();
     }
 
-    public TradePasswordResetRequest(String organId, String channel) {
-        super(organId, channel);
+    public String getCustNo() {
+        return custNo;
     }
 
-    public TradePasswordResetRequestInput getInput() {
-        return input;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
-    public void setInput(TradePasswordResetRequestInput input) {
-        this.input = input;
+    public String getTranPwd() {
+        return tranPwd;
+    }
+
+    public void setTranPwd(String tranPwd) {
+        this.tranPwd = tranPwd;
     }
 
     @Override
     public String toString() {
-        return "TradePasswordResetRequestInput{" +
-                "input=" + input +
+        return "TradePasswordResetRequest{" +
+                "custNo='" + custNo + '\'' +
+                ", tranPwd='" + tranPwd + '\'' +
                 '}';
     }
 }

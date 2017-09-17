@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,28 +15,26 @@ public class MerchantInfoQueryRequest extends BaseRequest {
 
     private static final long serialVersionUID = -9129756267543948422L;
 
-    private MerchantInfoQueryRequestInput input;
+    //客户号 32 M
+    @JSONField(name="cust_no")
+    private String custNo;
 
     public MerchantInfoQueryRequest() {
         super();
     }
 
-    public MerchantInfoQueryRequest(String organId, String channel) {
-        super(organId, channel);
+    public String getCustNo() {
+        return custNo;
     }
 
-    public MerchantInfoQueryRequestInput getInput() {
-        return input;
-    }
-
-    public void setInput(MerchantInfoQueryRequestInput input) {
-        this.input = input;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
     @Override
     public String toString() {
-        return "MerchantInfoQueryRequestInput{" +
-                "input=" + input +
+        return "MerchantInfoQueryRequest{" +
+                "custNo='" + custNo + '\'' +
                 '}';
     }
 }

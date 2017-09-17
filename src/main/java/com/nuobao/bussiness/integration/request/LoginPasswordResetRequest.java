@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,28 +15,39 @@ public class LoginPasswordResetRequest extends BaseRequest{
 
     private static final long serialVersionUID = 2879073341809235741L;
 
-    private LoginPasswordResetRequestInput input;
+    //客户号 32 M
+    @JSONField(name="cust_no")
+    private String custNo;
+
+    //登录密码 256 M
+    @JSONField(name="logon_pwd")
+    private String logonPwd;
 
     public LoginPasswordResetRequest() {
         super();
     }
 
-    public LoginPasswordResetRequest(String organId, String channel) {
-        super(organId, channel);
+    public String getCustNo() {
+        return custNo;
     }
 
-    public LoginPasswordResetRequestInput getInput() {
-        return input;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
-    public void setInput(LoginPasswordResetRequestInput input) {
-        this.input = input;
+    public String getLogonPwd() {
+        return logonPwd;
+    }
+
+    public void setLogonPwd(String logonPwd) {
+        this.logonPwd = logonPwd;
     }
 
     @Override
     public String toString() {
         return "LoginPasswordResetRequest{" +
-                "input=" + input +
+                "custNo='" + custNo + '\'' +
+                ", logonPwd='" + logonPwd + '\'' +
                 '}';
     }
 }

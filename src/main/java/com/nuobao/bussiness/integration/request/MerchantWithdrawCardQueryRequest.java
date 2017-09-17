@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,28 +15,39 @@ public class MerchantWithdrawCardQueryRequest extends BaseRequest {
 
     private static final long serialVersionUID = 4543572742089715341L;
 
-    private MerchantWithdrawCardQueryRequestInput input;
+    //客户号 32 M
+    @JSONField(name="cust_no")
+    private String custNo;
+
+    //开户行 10 O
+    @JSONField(name="bank_type")
+    private String bankType;
 
     public MerchantWithdrawCardQueryRequest() {
         super();
     }
 
-    public MerchantWithdrawCardQueryRequest(String organId, String channel) {
-        super(organId, channel);
+    public String getCustNo() {
+        return custNo;
     }
 
-    public MerchantWithdrawCardQueryRequestInput getInput() {
-        return input;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
-    public void setInput(MerchantWithdrawCardQueryRequestInput input) {
-        this.input = input;
+    public String getBankType() {
+        return bankType;
+    }
+
+    public void setBankType(String bankType) {
+        this.bankType = bankType;
     }
 
     @Override
     public String toString() {
         return "MerchantWithdrawCardQueryRequest{" +
-                "input=" + input +
+                "custNo='" + custNo + '\'' +
+                ", bankType='" + bankType + '\'' +
                 '}';
     }
 }

@@ -13,5 +13,5 @@ public class TicketPreparePayRequest extends BaseRequest{
 
     private static final long serialVersionUID = 6614300505929516504L;
 
-    private TicketPreparePayRequestInput input;
+
 }

@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,28 +15,52 @@ public class LoginPasswordModifyRequest extends BaseRequest{
 
     private static final long serialVersionUID = 1921455879960533698L;
 
-    private LoginPasswordModifyRequestInput input;
+    //客户号 32 M
+    @JSONField(name="cust_no")
+    private String custNo;
+
+    //原登录密码 256 M
+    @JSONField(name="logon_pwd_old")
+    private String logonPwdOld;
+
+    //新登录密码 256 M
+    @JSONField(name="logon_pwd_new")
+    private String logonPwdNew;
 
     public LoginPasswordModifyRequest() {
         super();
     }
 
-    public LoginPasswordModifyRequest(String organId, String channel) {
-        super(organId, channel);
+    public String getCustNo() {
+        return custNo;
     }
 
-    public LoginPasswordModifyRequestInput getInput() {
-        return input;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
-    public void setInput(LoginPasswordModifyRequestInput input) {
-        this.input = input;
+    public String getLogonPwdOld() {
+        return logonPwdOld;
+    }
+
+    public void setLogonPwdOld(String logonPwdOld) {
+        this.logonPwdOld = logonPwdOld;
+    }
+
+    public String getLogonPwdNew() {
+        return logonPwdNew;
+    }
+
+    public void setLogonPwdNew(String logonPwdNew) {
+        this.logonPwdNew = logonPwdNew;
     }
 
     @Override
     public String toString() {
         return "LoginPasswordModifyRequest{" +
-                "input=" + input +
+                "custNo='" + custNo + '\'' +
+                ", logonPwdOld='" + logonPwdOld + '\'' +
+                ", logonPwdNew='" + logonPwdNew + '\'' +
                 '}';
     }
 }
