@@ -4,6 +4,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -14,7 +15,13 @@ import java.util.Arrays;
 
 /**
  * Web层日志切面 
- */  
+ */
+/**
+ * Web层日志切面
+ * @author Xu Chengzhi
+ * @date 2017-09-16 九月 18:01
+ * @modify
+ **/
 @Aspect
 @Order(-1)
 @Component
@@ -24,7 +31,7 @@ public class WebLogAspect {
   
     ThreadLocal<Long> startTime = new ThreadLocal<>();  
   
-    @Pointcut("execution(public * com.nuobao.bussiness.*.*Controller(..))")
+    @Pointcut("execution(* com.nuobao.bussiness..*Controller.*(..))")
     public void webLog(){}  
   
     @Before("webLog()")
