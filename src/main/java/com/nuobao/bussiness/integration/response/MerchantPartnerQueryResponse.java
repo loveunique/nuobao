@@ -1,6 +1,10 @@
 package com.nuobao.bussiness.integration.response;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 诺宝往来伙伴查询响应结果
@@ -14,24 +18,26 @@ public class MerchantPartnerQueryResponse extends BaseResponse {
 
     private static final long serialVersionUID = 8951396286625152846L;
 
-    private MerchantPartnerQueryResponseOut out;
+    //卡号列表
+    @JSONField(name="partner_list")
+    private List<PartnerInfo> partnerInfos = new ArrayList<PartnerInfo>();
 
     public MerchantPartnerQueryResponse() {
         super();
     }
 
-    public MerchantPartnerQueryResponseOut getOut() {
-        return out;
+    public List<PartnerInfo> getPartnerInfos() {
+        return partnerInfos;
     }
 
-    public void setOut(MerchantPartnerQueryResponseOut out) {
-        this.out = out;
+    public void setPartnerInfos(List<PartnerInfo> partnerInfos) {
+        this.partnerInfos = partnerInfos;
     }
 
     @Override
     public String toString() {
         return "MerchantPartnerQueryResponse{" +
-                "out=" + out +
+                "partnerInfos=" + partnerInfos +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.response;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,24 +15,26 @@ public class MemberRegisterResponse extends BaseResponse {
 
     private static final long serialVersionUID = -4995191374237261073L;
 
-    private MemberRegisterResponseOut out;
+    //客户号
+    @JSONField(name="cust_no")
+    private String custNo;
 
     public MemberRegisterResponse() {
         super();
     }
 
-    public MemberRegisterResponseOut getOut() {
-        return out;
+    public String getCustNo() {
+        return custNo;
     }
 
-    public void setOut(MemberRegisterResponseOut out) {
-        this.out = out;
+    public void setCustNo(String custNo) {
+        this.custNo = custNo;
     }
 
     @Override
     public String toString() {
         return "MemberRegisterResponse{" +
-                "out=" + out +
+                "custNo='" + custNo + '\'' +
                 '}';
     }
 }

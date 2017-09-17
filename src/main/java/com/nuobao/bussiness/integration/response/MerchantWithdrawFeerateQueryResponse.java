@@ -1,6 +1,9 @@
 package com.nuobao.bussiness.integration.response;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.math.BigDecimal;
 
 /**
  * 诺宝提现税率查询响应结果
@@ -14,24 +17,26 @@ public class MerchantWithdrawFeerateQueryResponse extends BaseResponse {
 
     private static final long serialVersionUID = -1221843736869470118L;
 
-    private MerchantWithdrawFeerateQueryResponseOut out;
+    //税率
+    @JSONField(name="fee_rate")
+    private BigDecimal feeRate = BigDecimal.ZERO;
 
     public MerchantWithdrawFeerateQueryResponse() {
         super();
     }
 
-    public MerchantWithdrawFeerateQueryResponseOut getOut() {
-        return out;
+    public BigDecimal getFeeRate() {
+        return feeRate;
     }
 
-    public void setOut(MerchantWithdrawFeerateQueryResponseOut out) {
-        this.out = out;
+    public void setFeeRate(BigDecimal feeRate) {
+        this.feeRate = feeRate;
     }
 
     @Override
     public String toString() {
         return "MerchantWithdrawFeerateQueryResponse{" +
-                "out=" + out +
+                "feeRate=" + feeRate +
                 '}';
     }
 }

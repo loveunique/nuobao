@@ -1,5 +1,6 @@
 package com.nuobao.bussiness.integration.response;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -14,24 +15,26 @@ public class MerchantChargeResponse extends BaseResponse {
 
     private static final long serialVersionUID = 8951396286625152846L;
 
-    private MerchantChargeResponseOut out;
+    //预支付订单号
+    @JSONField(name="prepay_id")
+    private String prepayId;
 
     public MerchantChargeResponse() {
         super();
     }
 
-    public MerchantChargeResponseOut getOut() {
-        return out;
+    public String getPrepayId() {
+        return prepayId;
     }
 
-    public void setOut(MerchantChargeResponseOut out) {
-        this.out = out;
+    public void setPrepayId(String prepayId) {
+        this.prepayId = prepayId;
     }
 
     @Override
     public String toString() {
         return "MerchantChargeResponse{" +
-                "out=" + out +
+                "prepayId='" + prepayId + '\'' +
                 '}';
     }
 }
