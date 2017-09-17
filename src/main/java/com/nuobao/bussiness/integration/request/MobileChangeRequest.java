@@ -58,6 +58,7 @@ public class MobileChangeRequest extends BaseRequest{
     @Override
     public String toString() {
         return "MobileChangeRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", mobileNoNew='" + mobileNoNew + '\'' +
                 ", logonPwd='" + logonPwd + '\'' +

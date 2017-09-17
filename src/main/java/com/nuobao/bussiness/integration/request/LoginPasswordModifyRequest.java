@@ -58,6 +58,7 @@ public class LoginPasswordModifyRequest extends BaseRequest{
     @Override
     public String toString() {
         return "LoginPasswordModifyRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", logonPwdOld='" + logonPwdOld + '\'' +
                 ", logonPwdNew='" + logonPwdNew + '\'' +

@@ -72,6 +72,7 @@ public class MerchantChargeRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MerchantChargeRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", payAmount=" + payAmount +
                 ", payType='" + payType + '\'' +

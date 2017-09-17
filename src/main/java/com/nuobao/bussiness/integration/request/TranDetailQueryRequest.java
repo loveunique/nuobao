@@ -94,6 +94,7 @@ public class TranDetailQueryRequest extends BaseRequest {
     @Override
     public String toString() {
         return "TranDetailQueryRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", bizType='" + bizType + '\'' +
                 ", beginDate=" + beginDate +

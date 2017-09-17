@@ -94,6 +94,7 @@ public class MemberInfoModifyRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MemberInfoModifyRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", certNo='" + certNo + '\'' +
                 ", name='" + name + '\'' +

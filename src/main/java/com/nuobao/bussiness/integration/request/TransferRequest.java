@@ -119,6 +119,7 @@ public class TransferRequest extends BaseRequest{
     @Override
     public String toString() {
         return "TransferRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", bizType='" + bizType + '\'' +
                 ", tranAmount=" + tranAmount +

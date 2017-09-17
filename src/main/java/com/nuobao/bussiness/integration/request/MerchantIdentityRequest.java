@@ -120,6 +120,7 @@ public class MerchantIdentityRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MerchantIdentityRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", corporName='" + corporName + '\'' +
                 ", certNo='" + certNo + '\'' +

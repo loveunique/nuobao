@@ -46,6 +46,7 @@ public class MerchantWithdrawCardQueryRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MerchantWithdrawCardQueryRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", bankType='" + bankType + '\'' +
                 '}';

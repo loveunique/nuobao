@@ -46,6 +46,7 @@ public class MerchantWithdrawFeerateQueryRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MerchantWithdrawFeerateQueryRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", bizType='" + bizType + '\'' +
                 '}';

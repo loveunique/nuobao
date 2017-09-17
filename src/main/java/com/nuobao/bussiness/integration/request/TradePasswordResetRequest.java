@@ -46,6 +46,7 @@ public class TradePasswordResetRequest extends BaseRequest{
     @Override
     public String toString() {
         return "TradePasswordResetRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", tranPwd='" + tranPwd + '\'' +
                 '}';

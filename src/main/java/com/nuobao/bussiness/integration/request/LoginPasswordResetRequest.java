@@ -46,6 +46,7 @@ public class LoginPasswordResetRequest extends BaseRequest{
     @Override
     public String toString() {
         return "LoginPasswordResetRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", logonPwd='" + logonPwd + '\'' +
                 '}';

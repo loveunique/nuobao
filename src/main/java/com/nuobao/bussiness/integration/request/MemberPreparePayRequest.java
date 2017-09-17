@@ -72,6 +72,7 @@ public class MemberPreparePayRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MemberPreparePayRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", payAmount=" + payAmount +
                 ", payType='" + payType + '\'' +

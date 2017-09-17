@@ -96,6 +96,7 @@ public class MerchantWithdrawRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MerchantWithdrawRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", bizType='" + bizType + '\'' +
                 ", withdrawAmount=" + withdrawAmount +

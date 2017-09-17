@@ -34,6 +34,7 @@ public class MerchantInfoQueryRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MerchantInfoQueryRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 '}';
     }

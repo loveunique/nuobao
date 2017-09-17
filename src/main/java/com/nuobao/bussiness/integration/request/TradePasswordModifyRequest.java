@@ -58,6 +58,7 @@ public class TradePasswordModifyRequest extends BaseRequest{
     @Override
     public String toString() {
         return "TradePasswordModifyRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", tranPwdOld='" + tranPwdOld + '\'' +
                 ", tranPwdNew='" + tranPwdNew + '\'' +

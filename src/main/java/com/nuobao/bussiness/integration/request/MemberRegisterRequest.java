@@ -70,6 +70,7 @@ public class MemberRegisterRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MemberRegisterRequest{" +
+                super.toString() +
                 "mobileNo='" + mobileNo + '\'' +
                 ", recommdMobileNo='" + recommdMobileNo + '\'' +
                 ", logonPwd='" + logonPwd + '\'' +

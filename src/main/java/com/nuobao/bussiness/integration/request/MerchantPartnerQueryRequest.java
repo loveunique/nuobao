@@ -46,6 +46,7 @@ public class MerchantPartnerQueryRequest extends BaseRequest {
     @Override
     public String toString() {
         return "MerchantPartnerQueryRequest{" +
+                super.toString() +
                 "custNo='" + custNo + '\'' +
                 ", bizType='" + bizType + '\'' +
                 '}';

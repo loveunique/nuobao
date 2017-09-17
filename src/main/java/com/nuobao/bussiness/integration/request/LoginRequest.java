@@ -46,6 +46,7 @@ public class LoginRequest extends BaseRequest {
     @Override
     public String toString() {
         return "LoginRequest{" +
+                super.toString() +
                 "mobileNo='" + mobileNo + '\'' +
                 ", logonPwd='" + logonPwd + '\'' +
                 '}';
