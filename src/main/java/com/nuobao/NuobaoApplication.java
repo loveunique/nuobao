@@ -19,7 +19,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @SpringBootApplication
 @Configuration
 // 指定扫描范围
-@ComponentScan(basePackages = { "com.nuobao.common", "com.nuobao.bussiness"})
+@ComponentScan
 public class NuobaoApplication {
 
     /**

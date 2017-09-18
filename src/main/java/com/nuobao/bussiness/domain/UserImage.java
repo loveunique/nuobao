@@ -21,18 +21,18 @@ public class UserImage implements Serializable{
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "TUI_IMAGE_ID", length = 32, columnDefinition = "VARCHAR")
+    @Column(name = "TUI_IMAGE_ID", length = 32, nullable = false)
     private String imageId;
 
-    @Column(name = "TUI_CUST_NO", length = 32, columnDefinition = "VARCHAR")
+    @Column(name = "TUI_CUST_NO", length = 32, nullable = false)
     private String custNo;
 
     //图像类型
     //01 -- 身份证正面 02 -- 身份证反面 10 -- 营业执照正面 11 -- 营业执照背面 00 -- 用途头像
-    @Column(name = "TUI_IMAGE_TYPE", length = 2, columnDefinition = "VARCHAR")
+    @Column(name = "TUI_IMAGE_TYPE", length = 2, nullable = false)
     private String imageType;
 
-    @Column(name = "TUI_IMAGE_PATH", length = 128, columnDefinition = "VARCHAR")
+    @Column(name = "TUI_IMAGE_PATH", length = 128, nullable = false)
     private String imagePath;
 
     public String getImageId() {
