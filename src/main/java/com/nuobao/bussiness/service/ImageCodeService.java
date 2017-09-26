@@ -1,5 +1,7 @@
 package com.nuobao.bussiness.service;
 
+import com.nuobao.common.exception.TranFailException;
+
 import java.util.Map;
 
 /**
@@ -18,7 +20,7 @@ public interface ImageCodeService {
 	 * @param charNum 图片中字母数量 
 	 * @throws Exception
 	 */
-	Map<String,String> getImageCode(int verifyWidthPerChar, int verifyHeight, int charNum) throws Exception;
+	Map<String,String> getImageCode(int verifyWidthPerChar, int verifyHeight, int charNum) throws TranFailException;
 
     /**
      * 验证图形码
@@ -27,5 +29,5 @@ public interface ImageCodeService {
      * @return Map<String,String>
      * @throws Exception
      */
-	Map<String,String> checkImageCode(String key, String verifyKey) throws Exception;
+	Map<String,String> checkImageCode(String key, String verifyKey) throws TranFailException;
 }

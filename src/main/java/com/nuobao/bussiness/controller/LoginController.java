@@ -1,7 +1,6 @@
 package com.nuobao.bussiness.controller;
 
 import com.nuobao.bussiness.integration.request.*;
-import com.nuobao.bussiness.repository.UserRepository;
 import com.nuobao.bussiness.service.LoginService;
 import com.nuobao.common.constant.ApplicationErrorCode;
 import com.nuobao.common.exception.TranFailException;

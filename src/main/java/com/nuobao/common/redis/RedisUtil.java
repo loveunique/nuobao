@@ -87,7 +87,7 @@ public class RedisUtil {
 			tag = true;
 		}finally{
 			clearCache(tag, jedis);
-		};
+		}
 	}
 	
 	/**

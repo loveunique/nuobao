@@ -54,7 +54,7 @@ public class ImageCodeServiceImpl implements ImageCodeService {
 	 * @throws Exception
 	 */
 	@Override
-	public Map<String, String> getImageCode(int verifyWidthPerChar,int verifyHeight, int charNum) throws Exception {
+	public Map<String, String> getImageCode(int verifyWidthPerChar,int verifyHeight, int charNum) throws TranFailException {
         logger.info("ImageCodeServiceImpl.getImageCode --> verifyWidthPerChar:{}, verifyHeight:{}, charNum:{}",
                 verifyWidthPerChar, verifyHeight, charNum);
 
@@ -256,8 +256,8 @@ public class ImageCodeServiceImpl implements ImageCodeService {
 
 	
 	@Override
-	public Map<String,String> checkImageCode(String key, String verifyKey) throws Exception {
-		Object value=null;
+	public Map<String,String> checkImageCode(String key, String verifyKey) throws TranFailException {
+		Object value = null;
 		try {
 			value = RedisUtil.get(key);
 		} catch (Exception e) {
